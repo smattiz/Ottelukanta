@@ -1,0 +1,101 @@
+﻿@page
+@model IndexModel
+
+
+
+<div class="header">
+    <h1>Ottelukanta</h1>
+</div>
+<div class="container-fluid">
+    <h2 >Valitse aikaväli</h2>
+
+    <div class=" container botton-margin">
+        @if (Model.isDateErrors)
+         {
+        <div>
+            <p class="error" id="startError">varmistathan, että päivämääräsi ovat tyhjiä tai  muodossa PP.KK.VVVV</p>
+            <p class="error"> Näytetään kaikki ottelut</p>
+        </div>
+
+        }
+        <form class="form-inline form-container" id="limitingform" method="post">
+            <div class="form-group extra-margin">
+                <label for="beginnning">Alkaen</label>
+                <input class="form-control " type="text" id="beginning" name="beginning" placeholder="pp.kk.vvvv " />
+            </div>
+            <div class="form-group extra-margin">
+                <label for="ending">Päättyen</label>
+                <input class="form-control" type="text" id="ending" name="ending" placeholder="pp.kk.vvvv " /> 
+            </div>
+            <div class="form-group">
+                <input class="btn" type="submit" value="Rajaa" id="SubmitButton" />
+            </div>
+        </form>
+
+    </div>
+    <div class="container-fluid ">
+        <table class="table-responsive table-container">
+            <tbody>
+                <tr >
+                    <th>
+                       Päivä ja kellonaika
+                    </th>
+                    <th>
+                        Kotijoukkue
+                    </th>
+                    <th>
+                        Kotijoukkueen maalit
+                    </th>
+                    <th>
+                       Vastustaja
+                    </th>
+                    <th>
+                        Vastustajan maalit
+                    </th>
+                    <th> Voittaja</th>
+                </tr>
+                @foreach (DataModels.Match match in Model.kokeiluLista)
+                {
+                    <tr >
+                        <td>
+                            @match.MatchDate
+                        </td>
+                        <td>
+                            @match.HomeTeam.FullName
+                        </td>
+                        <td>
+                            @match.HomeGoals
+                        </td>
+                        <td>
+                            @match.AwayTeam.FullName
+                        </td>
+                        <td>
+                            @match.AwayGoals
+                        </td>
+
+                        <td>
+                            @if (match.HomeGoals > match.AwayGoals)
+                            {
+                                @match.HomeTeam.FullName
+
+                            }
+                            else if (match.HomeGoals < match.AwayGoals)
+                            {
+                                @match.AwayTeam.FullName
+                            }
+                            else
+                            {
+                                @Model.EvenCase
+
+                            }
+
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+
+        </table>
+    </div>
+</div>
+

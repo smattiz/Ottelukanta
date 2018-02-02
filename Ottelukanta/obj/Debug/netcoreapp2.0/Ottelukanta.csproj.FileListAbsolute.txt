@@ -1,0 +1,11 @@
+F:\Ohjelmointi\ADAFY\Versio1\Ottelukanta\Ottelukanta\Ottelukanta\bin\Debug\netcoreapp2.0\Ottelukanta.deps.json
+F:\Ohjelmointi\ADAFY\Versio1\Ottelukanta\Ottelukanta\Ottelukanta\bin\Debug\netcoreapp2.0\Ottelukanta.runtimeconfig.json
+F:\Ohjelmointi\ADAFY\Versio1\Ottelukanta\Ottelukanta\Ottelukanta\bin\Debug\netcoreapp2.0\Ottelukanta.runtimeconfig.dev.json
+F:\Ohjelmointi\ADAFY\Versio1\Ottelukanta\Ottelukanta\Ottelukanta\bin\Debug\netcoreapp2.0\Ottelukanta.dll
+F:\Ohjelmointi\ADAFY\Versio1\Ottelukanta\Ottelukanta\Ottelukanta\bin\Debug\netcoreapp2.0\Ottelukanta.pdb
+F:\Ohjelmointi\ADAFY\Versio1\Ottelukanta\Ottelukanta\Ottelukanta\obj\Debug\netcoreapp2.0\Ottelukanta.csproj.CoreCompileInputs.cache
+F:\Ohjelmointi\ADAFY\Versio1\Ottelukanta\Ottelukanta\Ottelukanta\obj\Debug\netcoreapp2.0\Ottelukanta.AssemblyInfoInputs.cache
+F:\Ohjelmointi\ADAFY\Versio1\Ottelukanta\Ottelukanta\Ottelukanta\obj\Debug\netcoreapp2.0\Ottelukanta.AssemblyInfo.cs
+F:\Ohjelmointi\ADAFY\Versio1\Ottelukanta\Ottelukanta\Ottelukanta\obj\Debug\netcoreapp2.0\Ottelukanta.dll
+F:\Ohjelmointi\ADAFY\Versio1\Ottelukanta\Ottelukanta\Ottelukanta\obj\Debug\netcoreapp2.0\Ottelukanta.pdb
+F:\Ohjelmointi\ADAFY\Versio1\Ottelukanta\Ottelukanta\Ottelukanta\obj\Debug\netcoreapp2.0\Ottelukanta.csprojResolveAssemblyReference.cache
