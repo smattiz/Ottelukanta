@@ -54,7 +54,9 @@
                     </th>
                     <th> Voittaja</th>
                 </tr>
-                @foreach (DataModels.Match match in Model.kokeiluLista)
+          
+                @if (!Model.isFileError) { 
+                foreach (DataModels.Match match in Model.kokeiluLista)
                 {
                     <tr >
                         <td>
@@ -92,7 +94,14 @@
                         </td>
                     </tr>
 
+                    }
+                  
                 }
+                  else {
+                     <tr class="error">Error! File not Found</tr>
+
+                    }
+
             </tbody>
 
         </table>

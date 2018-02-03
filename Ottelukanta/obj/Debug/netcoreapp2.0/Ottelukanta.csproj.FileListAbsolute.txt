@@ -8,4 +8,3 @@ F:\Ohjelmointi\ADAFY\Versio1\Ottelukanta\Ottelukanta\Ottelukanta\obj\Debug\netco
 F:\Ohjelmointi\ADAFY\Versio1\Ottelukanta\Ottelukanta\Ottelukanta\obj\Debug\netcoreapp2.0\Ottelukanta.AssemblyInfo.cs
 F:\Ohjelmointi\ADAFY\Versio1\Ottelukanta\Ottelukanta\Ottelukanta\obj\Debug\netcoreapp2.0\Ottelukanta.dll
 F:\Ohjelmointi\ADAFY\Versio1\Ottelukanta\Ottelukanta\Ottelukanta\obj\Debug\netcoreapp2.0\Ottelukanta.pdb
-F:\Ohjelmointi\ADAFY\Versio1\Ottelukanta\Ottelukanta\Ottelukanta\obj\Debug\netcoreapp2.0\Ottelukanta.csprojResolveAssemblyReference.cache

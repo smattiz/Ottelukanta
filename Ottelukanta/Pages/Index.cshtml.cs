@@ -17,9 +17,10 @@ namespace Ottelukanta.Pages
     /// </summary>
     public class IndexModel : PageModel
     {
-        private string Matches=System.IO.File.ReadAllText("matches.json");
+        private string Matches;
         public List<DataModels.Match> kokeiluLista= new List<DataModels.Match>();
         public bool isDateErrors { get; set; }
+        public bool isFileError { get; set; }
         public string EvenCase {
             get
             {
@@ -110,7 +111,17 @@ namespace Ottelukanta.Pages
         /// <returns></returns>
         private void LoadMatches()
         {
-             kokeiluLista = JsonConvert.DeserializeObject<List<DataModels.Match>>(Matches);
+            try
+            {
+                Matches= System.IO.File.ReadAllText("matches.json");
+                kokeiluLista = JsonConvert.DeserializeObject<List<DataModels.Match>>(Matches);
+            }
+            catch
+            {
+             
+                isFileError = true;
+            }
+           //  kokeiluLista = JsonConvert.DeserializeObject<List<DataModels.Match>>(Matches);
          
         }
 
@@ -121,6 +132,20 @@ namespace Ottelukanta.Pages
         /// <param name="end"> ending time to which to stop</param>
         private void LoadMatches(DateTime Start, DateTime End)
         {
+            try
+            {
+                Matches = System.IO.File.ReadAllText("matches.json");
+                kokeiluLista = JsonConvert.DeserializeObject<List<DataModels.Match>>(Matches);
+            }
+            catch
+            {
+               
+                isFileError = true;
+            }
+
+
+
+
             List<DataModels.Match> AllMatches = JsonConvert.DeserializeObject<List<DataModels.Match>>(Matches);
             List<DataModels.Match> FilteredMatches = new List<DataModels.Match>();
             foreach (DataModels.Match match in AllMatches)
