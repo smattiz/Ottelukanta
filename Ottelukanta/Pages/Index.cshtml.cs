@@ -17,8 +17,11 @@ namespace Ottelukanta.Pages
     /// </summary>
     public class IndexModel : PageModel
     {
+
+        private const string STANDARD_START_DATE = "11.11.1970";
+        private const string STANDARD_END_DATE = "30.11.2018";
         private string Matches;
-        public List<DataModels.Match> kokeiluLista= new List<DataModels.Match>();
+        public List<DataModels.Match> MatchList= new List<DataModels.Match>();
         public bool isDateErrors { get; set; }
         public bool isFileError { get; set; }
         public string EvenCase {
@@ -28,8 +31,9 @@ namespace Ottelukanta.Pages
             }
 
         }
-  
+       
         private string StartingTime { get; set; }
+        
         private string EndingTime { get; set; }
 
         public void OnGet()
@@ -66,18 +70,17 @@ namespace Ottelukanta.Pages
         /// </summary>
         private void filterMatches()
         {
-            DateTime Start = parseDate(StartingTime,"11.11.1970");
-            DateTime End = parseDate(EndingTime, "30.11.2018");
+            DateTime Start = parseDate(StartingTime,STANDARD_START_DATE);
+            DateTime End = parseDate(EndingTime, STANDARD_END_DATE);
             if(Start>End)
             {
                 DateTime Temp = Start;
                 Start = End;
                 End = Temp;
             }
-            if (( Start == new DateTime(1970,11,11) && End== new DateTime(2018,11,30)) )
+            if (( Start == new DateTime(1970,11,11) && End == new DateTime(2018,11,30)) )
             {
                 isDateErrors = true;
-              //  LoadMatches(Start, End);
             }
             LoadMatches(Start, End);
         }
@@ -114,14 +117,14 @@ namespace Ottelukanta.Pages
             try
             {
                 Matches= System.IO.File.ReadAllText("matches.json");
-                kokeiluLista = JsonConvert.DeserializeObject<List<DataModels.Match>>(Matches);
+                MatchList = JsonConvert.DeserializeObject<List<DataModels.Match>>(Matches);
             }
             catch
             {
              
                 isFileError = true;
             }
-           //  kokeiluLista = JsonConvert.DeserializeObject<List<DataModels.Match>>(Matches);
+           //  MatchList = JsonConvert.DeserializeObject<List<DataModels.Match>>(Matches);
          
         }
 
@@ -135,7 +138,7 @@ namespace Ottelukanta.Pages
             try
             {
                 Matches = System.IO.File.ReadAllText("matches.json");
-                kokeiluLista = JsonConvert.DeserializeObject<List<DataModels.Match>>(Matches);
+                MatchList = JsonConvert.DeserializeObject<List<DataModels.Match>>(Matches);
             }
             catch
             {
@@ -156,7 +159,7 @@ namespace Ottelukanta.Pages
                     FilteredMatches.Add(match);
                 }
             }
-            kokeiluLista = FilteredMatches;
+            MatchList = FilteredMatches;
         }
     }
 }

@@ -21,11 +21,12 @@
         <form class="form-inline form-container" id="limitingform" method="post">
             <div class="form-group extra-margin">
                 <label for="beginnning">Alkaen</label>
-                <input class="form-control " type="text" id="beginning" name="beginning" placeholder="pp.kk.vvvv " />
+
+                <input class="form-control "  id="beginning" name="beginning"  placeholder="pp.kk.vvvv " />
             </div>
             <div class="form-group extra-margin">
                 <label for="ending">Päättyen</label>
-                <input class="form-control" type="text" id="ending" name="ending" placeholder="pp.kk.vvvv " /> 
+                <input class="form-control" type="text" id="ending" name="ending"  placeholder="pp.kk.vvvv " /> 
             </div>
             <div class="form-group">
                 <input class="btn" type="submit" value="Rajaa" id="SubmitButton" />
@@ -56,7 +57,7 @@
                 </tr>
           
                 @if (!Model.isFileError) { 
-                foreach (DataModels.Match match in Model.kokeiluLista)
+                foreach (DataModels.Match match in Model.MatchList)
                 {
                     <tr >
                         <td>
