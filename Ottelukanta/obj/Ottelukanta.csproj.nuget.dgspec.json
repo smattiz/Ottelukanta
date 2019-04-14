@@ -1,0 +1,71 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Personal things\\Codes etc\\Ohjelmointi\\Ottelukanta\\Ottelukanta\\Ottelukanta.csproj": {}
+  },
+  "projects": {
+    "D:\\Personal things\\Codes etc\\Ohjelmointi\\Ottelukanta\\Ottelukanta\\Ottelukanta.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Personal things\\Codes etc\\Ohjelmointi\\Ottelukanta\\Ottelukanta\\Ottelukanta.csproj",
+        "projectName": "Ottelukanta",
+        "projectPath": "D:\\Personal things\\Codes etc\\Ohjelmointi\\Ottelukanta\\Ottelukanta\\Ottelukanta.csproj",
+        "packagesPath": "C:\\Users\\Matti\\.nuget\\packages\\",
+        "outputPath": "D:\\Personal things\\Codes etc\\Ohjelmointi\\Ottelukanta\\Ottelukanta\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Matti\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.0": {
+          "dependencies": {
+            "JSON": {
+              "target": "Package",
+              "version": "[1.0.1, )"
+            },
+            "Microsoft.AspNetCore.All": {
+              "target": "Package",
+              "version": "[2.0.5, )"
+            },
+            "Microsoft.NETCore.App": {
+              "target": "Package",
+              "version": "[2.0.0, )",
+              "autoReferenced": true
+            },
+            "NewtonSoft.Json": {
+              "target": "Package",
+              "version": "[10.0.3, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

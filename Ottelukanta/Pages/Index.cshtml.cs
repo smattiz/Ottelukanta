@@ -1,10 +1,9 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Web;
+using Ottelukanta.DataHandling;
 using Newtonsoft.Json; //for JSON parsing
 
 namespace Ottelukanta.Pages
@@ -20,8 +19,11 @@ namespace Ottelukanta.Pages
 
         private const string STANDARD_START_DATE = "11.11.1970";
         private const string STANDARD_END_DATE = "30.11.2018";
-        private string Matches;
-        public List<DataModels.Match> MatchList= new List<DataModels.Match>();
+
+        private DataHandler handler = new DataHandler();
+        private string matchFileName = "matches.json";
+
+        public List<DataModels.Match> matchList= new List<DataModels.Match>();
         public bool isDateErrors { get; set; }
         public bool isFileError { get; set; }
         public string EvenCase {
@@ -32,16 +34,20 @@ namespace Ottelukanta.Pages
 
         }
        
-        private string StartingTime { get; set; }
-        
-        private string EndingTime { get; set; }
+
 
         public void OnGet()
         {
             isDateErrors = false;
-            LoadMatches();
+            try
+            { 
+                matchList = handler.LoadMatches(matchFileName);
+            }
+            catch
+            {
+                isFileError = true;
+            }
         }
-
 
         /// <summary>
         /// filter-button is clicked, if limitations are set, change matches-table
@@ -51,41 +57,33 @@ namespace Ottelukanta.Pages
         public IActionResult OnPost()
         {
             isDateErrors = false;
-            StartingTime = Request.Form["beginning"];
-            EndingTime = Request.Form["ending"];
-            if (string.IsNullOrEmpty(StartingTime) && string.IsNullOrEmpty(EndingTime) ) //Toimii 
+            var  startingTime = Request.Form["beginning"];
+            var  endingTime = Request.Form["ending"];
+
+            if (string.IsNullOrEmpty(startingTime) && string.IsNullOrEmpty(endingTime) ) 
             {
-                LoadMatches();
+                matchList =  handler.LoadMatches(matchFileName);
                 return Page();
             }
             else
             {
-                filterMatches();
+                DateTime Start = parseDate(startingTime, STANDARD_START_DATE);
+                DateTime End = parseDate(endingTime, STANDARD_END_DATE);
+                try
+                { 
+                   matchList = handler.FilterMatches(matchFileName,Start,End);
+                }
+                catch (ArgumentException e)
+                {
+                    isDateErrors = true;
+                }
+                catch (FileNotFoundException e)
+                {
+                    isFileError = true;
+                }
                 return Page();
             }
         }
-
-        /// <summary>
-        /// Filter matches based on limiting values
-        /// </summary>
-        private void filterMatches()
-        {
-            DateTime Start = parseDate(StartingTime,STANDARD_START_DATE);
-            DateTime End = parseDate(EndingTime, STANDARD_END_DATE);
-            if(Start>End)
-            {
-                DateTime Temp = Start;
-                Start = End;
-                End = Temp;
-            }
-            if (( Start == new DateTime(1970,11,11) && End == new DateTime(2018,11,30)) )
-            {
-                isDateErrors = true;
-            }
-            LoadMatches(Start, End);
-        }
-
-       
 
         /// <summary>
         /// Simple helper function to help date parsing
@@ -95,71 +93,17 @@ namespace Ottelukanta.Pages
         /// <returns></returns>
         private DateTime parseDate(string parsableDate, string ExceptionValue)
         {
-            DateTime Start = new DateTime();
+            var date = new DateTime();
             try
             {
-                 Start = DateTime.Parse(parsableDate);
+                date = DateTime.Parse(parsableDate);
             }
 
             catch
             {
-                Start = DateTime.Parse(ExceptionValue);
+                date = DateTime.Parse(ExceptionValue);
             }
-            return Start;
-        }
-
-        /// <summary>
-        /// Load all matches from .JSON -file
-        /// </summary>
-        /// <returns></returns>
-        private void LoadMatches()
-        {
-            try
-            {
-                Matches= System.IO.File.ReadAllText("matches.json");
-                MatchList = JsonConvert.DeserializeObject<List<DataModels.Match>>(Matches);
-            }
-            catch
-            {
-             
-                isFileError = true;
-            }
-           //  MatchList = JsonConvert.DeserializeObject<List<DataModels.Match>>(Matches);
-         
-        }
-
-        /// <summary>
-        /// Load matches based on starting date and ending
-        /// </summary>
-        /// <param name="start">starting time from which to load dates</param>
-        /// <param name="end"> ending time to which to stop</param>
-        private void LoadMatches(DateTime Start, DateTime End)
-        {
-            try
-            {
-                Matches = System.IO.File.ReadAllText("matches.json");
-                MatchList = JsonConvert.DeserializeObject<List<DataModels.Match>>(Matches);
-            }
-            catch
-            {
-               
-                isFileError = true;
-            }
-
-
-
-
-            List<DataModels.Match> AllMatches = JsonConvert.DeserializeObject<List<DataModels.Match>>(Matches);
-            List<DataModels.Match> FilteredMatches = new List<DataModels.Match>();
-            foreach (DataModels.Match match in AllMatches)
-            {
-                DateTime matchDate = match.MatchDate;
-                if(matchDate >= Start && matchDate<= End)
-                {
-                    FilteredMatches.Add(match);
-                }
-            }
-            MatchList = FilteredMatches;
+            return date;
         }
     }
 }

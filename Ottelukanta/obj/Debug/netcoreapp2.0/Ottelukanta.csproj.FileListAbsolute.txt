@@ -8,3 +8,14 @@ F:\Ohjelmointi\ADAFY\Versio1\Ottelukanta\Ottelukanta\Ottelukanta\obj\Debug\netco
 F:\Ohjelmointi\ADAFY\Versio1\Ottelukanta\Ottelukanta\Ottelukanta\obj\Debug\netcoreapp2.0\Ottelukanta.AssemblyInfo.cs
 F:\Ohjelmointi\ADAFY\Versio1\Ottelukanta\Ottelukanta\Ottelukanta\obj\Debug\netcoreapp2.0\Ottelukanta.dll
 F:\Ohjelmointi\ADAFY\Versio1\Ottelukanta\Ottelukanta\Ottelukanta\obj\Debug\netcoreapp2.0\Ottelukanta.pdb
+D:\Personal things\Codes etc\Ohjelmointi\Ottelukanta\Ottelukanta\bin\Debug\netcoreapp2.0\Ottelukanta.deps.json
+D:\Personal things\Codes etc\Ohjelmointi\Ottelukanta\Ottelukanta\bin\Debug\netcoreapp2.0\Ottelukanta.runtimeconfig.json
+D:\Personal things\Codes etc\Ohjelmointi\Ottelukanta\Ottelukanta\bin\Debug\netcoreapp2.0\Ottelukanta.runtimeconfig.dev.json
+D:\Personal things\Codes etc\Ohjelmointi\Ottelukanta\Ottelukanta\bin\Debug\netcoreapp2.0\Ottelukanta.dll
+D:\Personal things\Codes etc\Ohjelmointi\Ottelukanta\Ottelukanta\bin\Debug\netcoreapp2.0\Ottelukanta.pdb
+D:\Personal things\Codes etc\Ohjelmointi\Ottelukanta\Ottelukanta\obj\Debug\netcoreapp2.0\Ottelukanta.csprojAssemblyReference.cache
+D:\Personal things\Codes etc\Ohjelmointi\Ottelukanta\Ottelukanta\obj\Debug\netcoreapp2.0\Ottelukanta.csproj.CoreCompileInputs.cache
+D:\Personal things\Codes etc\Ohjelmointi\Ottelukanta\Ottelukanta\obj\Debug\netcoreapp2.0\Ottelukanta.AssemblyInfoInputs.cache
+D:\Personal things\Codes etc\Ohjelmointi\Ottelukanta\Ottelukanta\obj\Debug\netcoreapp2.0\Ottelukanta.AssemblyInfo.cs
+D:\Personal things\Codes etc\Ohjelmointi\Ottelukanta\Ottelukanta\obj\Debug\netcoreapp2.0\Ottelukanta.dll
+D:\Personal things\Codes etc\Ohjelmointi\Ottelukanta\Ottelukanta\obj\Debug\netcoreapp2.0\Ottelukanta.pdb
